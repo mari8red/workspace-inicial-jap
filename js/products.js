@@ -1,5 +1,7 @@
 let products = [];
 // Función para obtener la URL de la categoría específica
+let infoProducts = [];
+
 function getCategoryURL(catID) {
   // La función toma el argumento catID
   return `${PRODUCTS_URL}${catID}${EXT_TYPE}`; //y devuelve una URL construida usando ese verificador
@@ -212,6 +214,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchTerm = searchInput.value; // Obtenemos el valor actual del campo de búsqueda
     const filteredProducts = filterBySearchTerm(products, searchTerm); // Filtramos los productos según el término de búsqueda
     displayProducts(filteredProducts, productContainer); // Mostramos los productos filtrados en el contenedor de productos
+  });
+
+  // Evento click para los elementos de producto
+  productContainer.addEventListener("click", (event) => {
+    const selectedProduct = event.target.closest(".product-item"); // Obtenemos el elemento de producto más cercano al que se hizo clic
+
+    if (selectedProduct) {
+      // Si se hizo clic en un producto válido
+      const productId = selectedProduct.dataset.productId; // Obtenemos el ID del producto desde un atributo personalizado, por ejemplo, data-product-id
+
+      // Guardamos el ID del producto seleccionado en el almacenamiento local
+      localStorage.setItem("selectedProductId", productId);
+      window.location.href = "product-info.html";
+    }
   });
 
   // Cargamos y mostramos productos al cargar la página
