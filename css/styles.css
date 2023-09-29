@@ -221,4 +221,115 @@ a.custom-card:hover {
 }
 .menu a:hover {
   background-color: #000000;
+<<<<<<< Updated upstream
+=======
+}
+
+.product{
+  cursor: pointer;
+}
+
+
+
+#moonIcon{
+  color: white;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  padding-top: 10px;
+}
+/* Dark Mode */
+
+body.dark-mode {
+  background-color: #272727;
+  color: white;
+}
+
+body.dark-mode #cat-list-container .list-group-item{
+  background-color: #757575;
+}
+
+body.dark-mode .darkMode{
+  background-color: #757575;
+}
+
+body.dark-mode .darkModeProduct{
+  background-color: #3b3b3b;
+}
+
+body.dark-mode .darkModeComments{
+  background-color: transparent;
+  border-color: #565656;
+  border-radius: 10px;
+}
+
+body.dark-mode .darkModeTextComments{
+  color: white;
+}
+
+body.dark-mode .darkModeTitle{
+  color: white !important;
+}
+
+body.dark-mode .darkModeSold{
+  color: rgb(196, 196, 196) !important;
+}
+
+
+body.dark-mode h4 {
+  color: white;
+}
+
+body.dark-mode h4:hover{
+  color: black;
+}
+
+body.dark-mode p{
+  color: rgb(196, 196, 196);
+}
+body.dark-mode p:hover{
+  color: black;
+}
+
+body.dark-mode input{
+  background-color: #cccccc;
+}
+
+body.dark-mode .list-group-item {
+  background-color: #757575;
+  margin: 3px;
+  border-bottom-color: black;
+}
+
+body.dark-mode #moonIcon:hover {
+  color: #bdb9b9;
+}
+
+
+body.dark-mode .task-container {
+    border-color: #888; /* Cambia el color del borde en modo oscuro */
+    border-width: 5px;
+}
+
+body.dark-mode .mark-done-button{
+    background-color: grey !important;
+}
+
+body.dark-mode .mark-done-button:hover{
+    background-color: rgb(179, 179, 179) !important;
+}
+
+body.dark-mode #addTaskButton{
+    background-color: #e79600 !important;
+    border: black;
+    color: white;
+}
+
+body.dark-mode #addTaskButton:hover{
+    background-color: #FFA500 !important;
+}
+
+body.dark-mode #newTask{
+    background-color:#d8d8d8;
+>>>>>>> Stashed changes
 }

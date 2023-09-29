@@ -73,3 +73,24 @@ if (username) {
   perfilButton.textContent = `${username}`;
 }
 });
+
+// Manejo del ícono de dark mode
+const moonIcon = document.getElementById("moonIcon");
+const body = document.body;
+
+moonIcon.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  saveDarkModeState(body.classList.contains("dark-mode"));
+});
+
+function saveDarkModeState(isDarkMode) {
+  localStorage.setItem("darkMode", isDarkMode);
+}
+
+// Cargar estado de modo oscuro al cargar la página
+window.addEventListener("load", () => {
+  const isDarkMode = localStorage.getItem("darkMode") === "true";
+  if (isDarkMode) {
+    body.classList.add("dark-mode");
+  }
+});

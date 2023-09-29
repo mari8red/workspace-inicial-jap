@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -30,11 +31,14 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <div class="menu-container">
+            <i id="moonIcon" class="fas fa-moon"></i>
+          </li>
+          <li class="nav-item">
+            <div class="menu-container" style="position: absolute;">
               <button class="navbar-nav w-100 justify-content-between" id="perfil-button">Mi cuenta</button>
               <div id="perfil-menu" class="menu">
-                <a href="#">Perfil</a>
-                <a href="#">Configuración</a>
+                <a href="cart.html">Mi carrito</a>
+                <a href="my-profile.html">Mi perfil</a>
                 <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
               </div>
             </div>
@@ -49,7 +53,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
+            <div class="card mb-4 shadow-sm custom-card cursor-active darkMode" id="autos">
               <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
                 alt="Imgagen representativa de la categoría 'Autos'">
               <h3 class="m-3">Autos</h3>
@@ -59,7 +63,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">
+            <div class="card mb-4 shadow-sm custom-card cursor-active darkMode" id="juguetes">
               <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
                 alt="Imgagen representativa de la categoría 'Juguetes'">
               <h3 class="m-3">Juguetes</h3>
@@ -69,7 +73,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
+            <div class="card mb-4 shadow-sm custom-card cursor-active darkMode" id="muebles">
               <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
                 alt="Imgagen representativa de la categoría 'Muebles'">
               <h3 class="m-3">Muebles</h3>
