@@ -1,3 +1,11 @@
+
+.miniatura {
+  width: 95px;
+  height: 60px;
+  margin-left: 20%;
+}
+
+
 .jumbotron,
 .card-body,
 .container,
@@ -221,8 +229,6 @@ a.custom-card:hover {
 }
 .menu a:hover {
   background-color: #000000;
-<<<<<<< Updated upstream
-=======
 }
 
 .product{
@@ -331,5 +337,4 @@ body.dark-mode #addTaskButton:hover{
 
 body.dark-mode #newTask{
     background-color:#d8d8d8;
->>>>>>> Stashed changes
 }
