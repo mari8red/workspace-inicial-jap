@@ -40,7 +40,7 @@
 
     <div class="container mt-5">
       <h2 class="display-5 text-center mb-4">Carrito de Compras</h2>
-      <p class="blockquote text-decoration-underline"> Artículos a comprar:</p>
+      <h3 class="blockquote"> Artículos a comprar</h3>
       <div class="row">
         <div class="col-md-12">
           <div class="table-responsive">
@@ -59,6 +59,51 @@
             </table>
           </div>
         </div>
+      </div>
+      <div  class="pb-4">
+        <p> ¿Te quedó algo por agregar? <a href="categories.html">Seguir comprando</a></p> <!-- Link que lleva a categorías para agregar algo extra al carrito-->
+      </div>
+      <div>
+        <form> <!-- formulario que abarca (por ahora) el tipo de envío y dirección -->
+
+          <h3 class="blockquote">Tipo de envío</h3> 
+          <div class="m-4 form-check"> <!-- Creamos inputs tipo "radio" para seleccionar una opción de envío -->
+            <div class="mb-3 form-check">
+              <input type="radio" class="form-check-input" id="premium" name="shippingType" value="premium">
+              <label for="premium" class="form-check-label">Superior (de 2 a 5 días y 15% de recargo)</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="radio" class="form-check-input" id="express" name="shippingType"  value="express">
+              <label for="express" class="form-check-label">Rápido (de 7 a 10 días y 7% de recargo)</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="radio" class="form-check-input" id="standard" name="shippingType" value="standard" checked>
+              <label class="form-check-label" for="standard">Básico (de 12 a 15 días y 5% de recargo)</label>
+            </div>
+          </div>
+          
+          <h3 class="blockquote pt-4">Dirección de envio</h3>
+          <div class="m-4 p-3"> <!-- Creamos inputs para completar la dirección -->
+              <div class="mb-3 d-inline-flex col-4">
+                <label for="streetAddress" class="form-label pe-2 align-self-center">Calle </label>
+                <input type="text" value="" class="form-control" id="streetAddress" name="streetAddress">
+              </div>
+              <div class="mb-3 d-inline-flex col-2">
+                <label for="numberAddress" class="form-label p-2 align-self-center">Número</label>
+                <input type="number" class="form-control" id="numberAddress" name="numberAddress">
+              </div>
+              <div class="mb-3 d-inline-flex col-4">
+                <label for="cornerAddress" class="form-label p-2 align-self-center">Esquina</label>
+                <input type="text" class="form-control" id="cornerAddress" name="cornerAddress">
+              </div>
+            <div class="mb-3 d-inline-flex">
+              <label for="comments" class="form-label pe-2 align-self-center">Comentarios</label>
+              <input type="text" class="form-control col-12" id="comments" name="comments" placeholder="'Puerta marrón', 'bloque N°5'">
+            </div>
+          </div>
+          <input class="btn btn-primary d-block" type="button" name="send" value="Comprar"> <!-- Botón que envía el form -->
+
+        </form>
       </div>
     </div>
 
