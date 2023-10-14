@@ -11,6 +11,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/products.css">
+  <link rel="shortcut icon" href="img/favicon.png">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -34,28 +35,30 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            
-              <i id="moonIcon" class="fas fa-moon"></i>
-            </li>
-            <li class="nav-item" >
-              <div class="menu-container" style="position: absolute;">
-                <button class="navbar-nav w-100 justify-content-between" id="perfil-button">Mi cuenta</button>
-                <div id="perfil-menu" class="menu">
-                  <a href="cart.html">Mi carrito</a>
-                  <a href="my-profile.html">Mi perfil</a>
-                  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-                </div>
-              </div>
-            
+
+            <i id="moonIcon" class="fas fa-moon"></i>
           </li>
-        </ul>
+          <li class="nav-item">
+            <div class="menu-container">
+
+              <button class="navbar-nav w-100 justify-content-between" id="perfil-button">
+                Mi cuenta</button>
+              <div id="perfil-menu" class="menu position-relative ">
+                <a href="cart.html">Mi carrito</a>
+                <a href="my-profile.html">Mi perfil</a>
+                <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+              </div>
+
+            </div>
       </div>
+      </li>
+      </ul>
+    </div>
     </div>
   </nav>
   <main>
     <div class="container">
-      <div id="product-info" class="text-center" >
-        
+      <div id="product-info" class="text-center">
       </div>
     </div>
   </main>
@@ -64,7 +67,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">

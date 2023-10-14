@@ -39,5 +39,3 @@ document.getElementById("password").addEventListener("keydown", function(event) 
         login(); // Llama a la función de inicio de sesión
     }
 });
-
-

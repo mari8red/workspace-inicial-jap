@@ -9,6 +9,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="shortcut icon" href="img/favicon.png">
 </head>
 
 <body>
@@ -47,7 +49,12 @@
     </div>
   </nav>
   <main>
-
+    <div class="overlay" id="overlay">
+      <div class="overlay-content">
+          <h2>COMPRA EXITOSA!</h2>
+          <p>Tu compra se ha realizado con éxito.</p>   
+      </div>
+  </div>
 
     <div class="container mt-5">
       <h2 class="display-5 text-center mb-4">Carrito de Compras</h2>
@@ -56,13 +63,13 @@
         <div class="col-md-12">
           <div class="table-responsive">
             <table class="table table-bordered table-striped">
-              <thead class="thead-dark">
+              <thead class="thead-light">
                 <tr>
                   <th scope="col"></th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Costo</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Subtotal</th>
+                  <th scope="col" class="text-primary">Nombre</th>
+                  <th scope="col" class="text-primary">Costo</th>
+                  <th scope="col" class="text-primary">Cantidad</th>
+                  <th scope="col" class="text-primary">Subtotal</th>
                 </tr>
               </thead>
               <tbody id="cart-products">
@@ -94,25 +101,27 @@
           </div>
           
           <h3 class="blockquote pt-4">Dirección de envio</h3>
-          <div class="m-4 p-3"> <!-- Creamos inputs para completar la dirección -->
-              <div class="mb-3 d-inline-flex col-4">
+        
+          <div class="row row-cols-lg-6 row-cols-md-4"> <!-- Creamos inputs para completar la dirección -->
+              <div class="d-inline-flex">
                 <label for="streetAddress" class="form-label pe-2 align-self-center">Calle </label>
                 <input type="text" value="" class="form-control" id="streetAddress" name="streetAddress">
               </div>
-              <div class="mb-3 d-inline-flex col-2">
+              <div class="d-inline-flex ">
                 <label for="numberAddress" class="form-label p-2 align-self-center">Número</label>
                 <input type="number" class="form-control" id="numberAddress" name="numberAddress">
               </div>
-              <div class="mb-3 d-inline-flex col-4">
+              <div class="d-inline-flex">
                 <label for="cornerAddress" class="form-label p-2 align-self-center">Esquina</label>
                 <input type="text" class="form-control" id="cornerAddress" name="cornerAddress">
               </div>
-            <div class="mb-3 d-inline-flex">
+            <div class="d-inline-flex">
               <label for="comments" class="form-label pe-2 align-self-center">Comentarios</label>
               <input type="text" class="form-control col-12" id="comments" name="comments" placeholder="'Puerta marrón', 'bloque N°5'">
             </div>
-          </div>
-          <input class="btn btn-primary d-block" type="button" name="send" value="Comprar"> <!-- Botón que envía el form -->
+          </div><br>
+          
+          <input class="btn btn-primary d-block" type="button" name="send" value="Comprar" id="mostrarOverlay"> <!-- Botón que envía el form -->
 
         </form>
       </div>
