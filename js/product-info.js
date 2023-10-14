@@ -34,50 +34,50 @@ document.addEventListener("DOMContentLoaded", async () => {
       "darkModeProduct"
     );
     // Creamos un botón de "Agregar al carrito"
-const addToCartButton = document.createElement("button");
-addToCartButton.textContent = "Agregar al carrito";
-addToCartButton.classList.add("btn", "btn-success", "m-2", "darkModeButton");
+    const addToCartButton = document.createElement("button");
+    addToCartButton.textContent = "Agregar al carrito";
+    addToCartButton.classList.add("btn", "btn-success", "m-2", "darkModeButton");
 
-// Agregamos un evento "click" al botón "Agregar al carrito"
-addToCartButton.addEventListener("click", () => {
-  // Creamos un objeto que representa el producto a agregar al carrito
-  const productToAddToCart = {
-    id: selectedProductId, // Usar el ID del producto
-    image: product.images
-    ? (Array.isArray(product.images) && product.images.length > 0
-      ? product.images[0]
-      : product.images)
-    : product.image,
-    name: product.name,
-    unitCost: product.cost,
-    currency: product.currency,
-    count: 1, // Inicialmente, el producto se agrega con una cantidad de 1
-  };
+    // Agregamos un evento "click" al botón "Agregar al carrito"
+    addToCartButton.addEventListener("click", () => {
+      // Creamos un objeto que representa el producto a agregar al carrito
+      const productToAddToCart = {
+        id: selectedProductId, // Usar el ID del producto
+        image: product.images
+          ? (Array.isArray(product.images) && product.images.length > 0
+            ? product.images[0]
+            : product.images)
+          : product.image,
+        name: product.name,
+        unitCost: product.cost,
+        currency: product.currency,
+        count: 1, // Inicialmente, el producto se agrega con una cantidad de 1
+      };
 
-  // Verificamos si ya hay productos en el carrito (en localStorage)
-  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      // Verificamos si ya hay productos en el carrito (en localStorage)
+      let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Verificamos si el producto ya existe en el carrito
-  const existingProductIndex = cartItems.findIndex(item => item.id === productToAddToCart.id);
+      // Verificamos si el producto ya existe en el carrito
+      const existingProductIndex = cartItems.findIndex(item => item.id === productToAddToCart.id);
 
-  if (existingProductIndex !== -1) {
-    // Si el producto ya está en el carrito, aumentamos su cantidad en 1
-    cartItems[existingProductIndex].count++;
-  } else {
-    // Si el producto no existe en el carrito, lo agregamos al arreglo de productos del carrito
-    cartItems.push(productToAddToCart);
-  }
+      if (existingProductIndex !== -1) {
+        // Si el producto ya está en el carrito, aumentamos su cantidad en 1
+        cartItems[existingProductIndex].count++;
+      } else {
+        // Si el producto no existe en el carrito, lo agregamos al arreglo de productos del carrito
+        cartItems.push(productToAddToCart);
+      }
 
-  // Almacenamos el carrito actualizado en el localStorage
-  localStorage.setItem("cart", JSON.stringify(cartItems));
+      // Almacenamos el carrito actualizado en el localStorage
+      localStorage.setItem("cart", JSON.stringify(cartItems));
 
-  // Notificamos al usuario que el producto se ha añadido al carrito
-  alert("El producto ha sido añadido al carrito.");
+      // Notificamos al usuario que el producto se ha añadido al carrito
+      alert("El producto ha sido añadido al carrito.");
 
-});
+    });
 
-// Agregamos el botón de "Agregar al carrito" al contenedor de product-info
-productInfoContainer.appendChild(addToCartButton);
+    // Agregamos el botón de "Agregar al carrito" al contenedor de product-info
+    productInfoContainer.appendChild(addToCartButton);
 
 
     // Creamos un elemento div para el carrusel
@@ -111,7 +111,7 @@ productInfoContainer.appendChild(addToCartButton);
 
       carouselItem.appendChild(productImage);
       carouselInner.appendChild(carouselItem);
-      
+
     });
 
     // Agregamos el carrusel al contenedor de información del producto
@@ -197,8 +197,9 @@ productInfoContainer.appendChild(addToCartButton);
         "mb-3",
         "w-50",
         "mx-auto",
-        "darkModeComments"
-      );
+        "darkModeComments",
+        "responsiveComments"
+        );
 
       const commentCardBody = document.createElement("div");
       commentCardBody.classList.add("card-body");
@@ -247,7 +248,7 @@ productInfoContainer.appendChild(addToCartButton);
     // Agregamos sección para ingresar comentarios y calificación
     const commentFormContainer = document.createElement("div");
     commentFormContainer.id = "comment-form";
-    commentFormContainer.classList.add("mt-4", "w-50", "mx-auto");
+    commentFormContainer.classList.add("mt-4", "w-50", "mx-auto", "responsiveForm");
 
     // Título para la sección de comentarios
     const commentTitle = document.createElement("h3");
@@ -449,7 +450,7 @@ productInfoContainer.appendChild(addToCartButton);
     product.relatedProducts.forEach(async (relatedProduct) => {
       // Creamos un div para cada producto relacionado
       const relatedProductCard = document.createElement("div");
-      relatedProductCard.classList.add("card", "m-3", "w-25", "text-center");
+      relatedProductCard.classList.add("card", "m-3", "w-25", "text-center", "responsiveTest");
 
       // Agregamos un controlador de eventos para cada producto relacionado
       relatedProductCard.addEventListener("click", () => {
@@ -460,36 +461,36 @@ productInfoContainer.appendChild(addToCartButton);
         window.location.href = "product-info.html";
       });
 
-            // Creamos el cuerpo del producto relacionado
-            const relatedProductCardBody = document.createElement("div");
-            relatedProductCardBody.classList.add("card-body", "w-100", "bg-dark");
+      // Creamos el cuerpo del producto relacionado
+      const relatedProductCardBody = document.createElement("div");
+      relatedProductCardBody.classList.add("card-body", "w-100", "bg-dark");
 
-            // Agregamos el nombre del producto relacionado
-            const relatedProductName = document.createElement("h5");
-            relatedProductName.textContent = relatedProduct.name;
-            relatedProductName.classList.add("card-title", "text-info");
+      // Agregamos el nombre del producto relacionado
+      const relatedProductName = document.createElement("h5");
+      relatedProductName.textContent = relatedProduct.name;
+      relatedProductName.classList.add("card-title", "text-info");
 
-            // Agregamos la imagen del producto relacionado
-            const relatedProductImage = document.createElement("img");
-            relatedProductImage.src = relatedProduct.image;
-            relatedProductImage.classList.add("card-img-top");
+      // Agregamos la imagen del producto relacionado
+      const relatedProductImage = document.createElement("img");
+      relatedProductImage.src = relatedProduct.image;
+      relatedProductImage.classList.add("card-img-top");
 
-            // Agregamos el nombre y la imagen al cuerpo del producto relacionado
-            relatedProductCardBody.appendChild(relatedProductName);
-            relatedProductCardBody.appendChild(relatedProductImage);
+      // Agregamos el nombre y la imagen al cuerpo del producto relacionado
+      relatedProductCardBody.appendChild(relatedProductName);
+      relatedProductCardBody.appendChild(relatedProductImage);
 
-            // Agregamos el cuerpo del producto relacionado al div del producto
-            relatedProductCard.appendChild(relatedProductCardBody);
+      // Agregamos el cuerpo del producto relacionado al div del producto
+      relatedProductCard.appendChild(relatedProductCardBody);
 
-            // Agregamos el div del producto relacionado al contenedor de productos relacionados
-            relatedProductsContainer.appendChild(relatedProductCard);
-          });
+      // Agregamos el div del producto relacionado al contenedor de productos relacionados
+      relatedProductsContainer.appendChild(relatedProductCard);
+    });
 
-          // Agregamos el contenedor de productos relacionados a la sección de productos relacionados
-          relatedProductsSection.appendChild(relatedProductsContainer);
+    // Agregamos el contenedor de productos relacionados a la sección de productos relacionados
+    relatedProductsSection.appendChild(relatedProductsContainer);
 
-          // Agregamos la sección de productos relacionados al contenedor de información del producto
-          productInfoContainer.appendChild(relatedProductsSection);
+    // Agregamos la sección de productos relacionados al contenedor de información del producto
+    productInfoContainer.appendChild(relatedProductsSection);
 
     // Cargar comentarios almacenados en el almacenamiento local
     if (localStorage.getItem("comments")) {

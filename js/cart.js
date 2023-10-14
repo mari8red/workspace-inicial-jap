@@ -5,17 +5,14 @@ const url = `${CART_INFO_URL}${userID}.json`;
 function createQueue(element) {
   const queue = document.createElement("tr");
   queue.innerHTML = `
-        <td><img src="${
-          element.image
-        }" class="miniatura" class="img-thumbnail" class="img-fluid"></td>
+        <td><img src="${element.image
+    }" class="miniatura" class="img-thumbnail" class="img-fluid"></td>
         <td class="text-success"> ${element.name}</td>
         <td class="costo-cell text-success">${element.unitCost} ${element.currency}</td>
-        <td><input type="number" value="${
-          element.count
-        }" class="col-sm-2 form-control-sm cantidad-input"  min="0"></td>
-        <td class="subtotal-cell text-success">${element.unitCost * element.count} ${
-    element.currency
-  }</td>
+        <td><input type="number" value="${element.count
+    }" class="col-sm-2 w-75 mx-auto form-control-sm cantidad-input"  min="0"></td>
+        <td class="subtotal-cell text-success">${element.unitCost * element.count} ${element.currency
+    }</td>
         <td> <button class="delete-product" data-product-id="${element.id}" >Eliminar</button></td>
     `;
   return queue;
@@ -55,55 +52,55 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.error("Error al cargar el carrito de compras:", error);
     });
-    displayCartItems();
-    
+  displayCartItems();
 
-   function displayCartItems() {
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const productInfoDiv = document.getElementById("cart-products");
+  function displayCartItems() {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Limpiamos cualquier contenido existente en el contenedor
-  productInfoDiv.innerHTML = "";
+    const productInfoDiv = document.getElementById("cart-products");
 
-  // Iteramos sobre los productos en el carrito y los mostramos
-  cartItems.forEach((product) => {
-    // Creamos una fila con los datos del producto
-    let queue = createQueue(product);
+    // Limpiamos cualquier contenido existente en el contenedor
+    productInfoDiv.innerHTML = "";
 
-    // Agregamos la fila a la tabla
-    productInfoDiv.appendChild(queue);
+    // Iteramos sobre los productos en el carrito y los mostramos
+    cartItems.forEach((product) => {
+      // Creamos una fila con los datos del producto
+      let queue = createQueue(product);
 
-    // Agregamos un evento "input" al campo de cantidad en esta fila
-    const cantidadInput = queue.querySelector(".cantidad-input");
-    cantidadInput.addEventListener("input", () => {
-      // Obtén el valor actual del input
-      let cantidad = parseInt(cantidadInput.value);
+      // Agregamos la fila a la tabla
+      productInfoDiv.appendChild(queue);
 
-      // Verifica si el valor es menor que 1
-      if (cantidad < 1) {
-        cantidad = 1; // Establece el valor mínimo en 1
-        cantidadInput.value = cantidad; // Actualiza el valor en el input
-      }
+      // Agregamos un evento "input" al campo de cantidad en esta fila
+      const cantidadInput = queue.querySelector(".cantidad-input");
+      cantidadInput.addEventListener("input", () => {
+        // Obtén el valor actual del input
+        let cantidad = parseInt(cantidadInput.value);
 
-      calcularSubtotal(queue);
+        // Verifica si el valor es menor que 1
+        if (cantidad < 1) {
+          cantidad = 1; // Establece el valor mínimo en 1
+          cantidadInput.value = cantidad; // Actualiza el valor en el input
+        }
+
+        calcularSubtotal(queue);
+      });
+
+      // Agregamos un evento de clic al icono de eliminación (X) en la imagen del producto
+      const deleteIcon = queue.querySelector(".delete-product");
+      deleteIcon.addEventListener("click", (event) => {
+        const productId = product.id;
+
+        // Eliminar el producto del carrito (en la tabla del carrito)
+        queue.remove();
+
+        // Eliminar el producto del localStorage
+        const updatedCart = cartItems.filter((item) => item.id !== productId);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+      });
     });
-
-    // Agregamos un evento de clic al icono de eliminación (X) en la imagen del producto
-    const deleteIcon = queue.querySelector(".delete-product");
-    deleteIcon.addEventListener("click", (event) => {
-      const productId = product.id;
-
-      // Eliminar el producto del carrito (en la tabla del carrito)
-      queue.remove();
-
-      // Eliminar el producto del localStorage
-      const updatedCart = cartItems.filter((item) => item.id !== productId);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-    });
-  });
-   }
-   const overlay = document.getElementById("overlay");
+  }
+  const overlay = document.getElementById("overlay");
     const mostrarOverlayButton = document.getElementById("mostrarOverlay");
     const cerrarOverlayButton = document.getElementById("cerrarOverlay");
   
