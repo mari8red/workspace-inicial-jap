@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 document.addEventListener("DOMContentLoaded", async () => {
   let username = localStorage.getItem("username"); // Obtener el nombre de usuario
   const commentsByProduct = {};
@@ -35,6 +33,52 @@ document.addEventListener("DOMContentLoaded", async () => {
       "shadow",
       "darkModeProduct"
     );
+    // Creamos un botón de "Agregar al carrito"
+    const addToCartButton = document.createElement("button");
+    addToCartButton.textContent = "Agregar al carrito";
+    addToCartButton.classList.add("btn", "btn-success", "m-2", "darkModeButton");
+
+    // Agregamos un evento "click" al botón "Agregar al carrito"
+    addToCartButton.addEventListener("click", () => {
+      // Creamos un objeto que representa el producto a agregar al carrito
+      const productToAddToCart = {
+        id: selectedProductId, // Usar el ID del producto
+        image: product.images
+          ? (Array.isArray(product.images) && product.images.length > 0
+            ? product.images[0]
+            : product.images)
+          : product.image,
+        name: product.name,
+        unitCost: product.cost,
+        currency: product.currency,
+        count: 1, // Inicialmente, el producto se agrega con una cantidad de 1
+      };
+
+      // Verificamos si ya hay productos en el carrito (en localStorage)
+      let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Verificamos si el producto ya existe en el carrito
+      const existingProductIndex = cartItems.findIndex(item => item.id === productToAddToCart.id);
+
+      if (existingProductIndex !== -1) {
+        // Si el producto ya está en el carrito, aumentamos su cantidad en 1
+        cartItems[existingProductIndex].count++;
+      } else {
+        // Si el producto no existe en el carrito, lo agregamos al arreglo de productos del carrito
+        cartItems.push(productToAddToCart);
+      }
+
+      // Almacenamos el carrito actualizado en el localStorage
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+
+      // Notificamos al usuario que el producto se ha añadido al carrito
+      alert("El producto ha sido añadido al carrito.");
+
+    });
+
+    // Agregamos el botón de "Agregar al carrito" al contenedor de product-info
+    productInfoContainer.appendChild(addToCartButton);
+
 
     // Creamos un elemento div para el carrusel
     const carouselContainer = document.createElement("div");
@@ -67,6 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       carouselItem.appendChild(productImage);
       carouselInner.appendChild(carouselItem);
+
     });
 
     // Agregamos el carrusel al contenedor de información del producto
@@ -152,8 +197,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         "mb-3",
         "w-50",
         "mx-auto",
-        "darkModeComments"
-      );
+        "darkModeComments",
+        "responsiveComments"
+        );
 
       const commentCardBody = document.createElement("div");
       commentCardBody.classList.add("card-body");
@@ -202,7 +248,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Agregamos sección para ingresar comentarios y calificación
     const commentFormContainer = document.createElement("div");
     commentFormContainer.id = "comment-form";
-    commentFormContainer.classList.add("mt-4", "w-50", "mx-auto");
+    commentFormContainer.classList.add("mt-4", "w-50", "mx-auto", "responsiveForm");
 
     // Título para la sección de comentarios
     const commentTitle = document.createElement("h3");
@@ -404,7 +450,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     product.relatedProducts.forEach(async (relatedProduct) => {
       // Creamos un div para cada producto relacionado
       const relatedProductCard = document.createElement("div");
-      relatedProductCard.classList.add("card", "m-3", "w-25", "text-center");
+      relatedProductCard.classList.add("card", "m-3", "w-25", "text-center", "responsiveTest");
 
       // Agregamos un controlador de eventos para cada producto relacionado
       relatedProductCard.addEventListener("click", () => {
@@ -417,12 +463,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Creamos el cuerpo del producto relacionado
       const relatedProductCardBody = document.createElement("div");
-      relatedProductCardBody.classList.add("card-body");
+      relatedProductCardBody.classList.add("card-body", "w-100", "bg-dark");
 
       // Agregamos el nombre del producto relacionado
       const relatedProductName = document.createElement("h5");
       relatedProductName.textContent = relatedProduct.name;
-      relatedProductName.classList.add("card-title");
+      relatedProductName.classList.add("card-title", "text-info");
 
       // Agregamos la imagen del producto relacionado
       const relatedProductImage = document.createElement("img");
@@ -466,4 +512,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
   }
 });
->>>>>>> Stashed changes
