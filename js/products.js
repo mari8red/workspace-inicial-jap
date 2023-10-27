@@ -10,7 +10,7 @@ function getCategoryURL(catID) {
 function createProductHTML(product) {
   //Toma un objeto 'product' como argumento y crea el contenido HTML que representa al producto
   return `
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center product">
       <img src="${product.image}" alt="${product.name}" style="width: 25%;" class="mr-3 product-image">
       <div style="width:100%;">
         <h5 style="margin-left: 5px;" class="fw-bold display-8 product-title">${product.name}</h5>
@@ -47,6 +47,16 @@ function displayProducts(products, container) {
     productCard.className =
       "list-group-item product-item d-flex justify-content-between align-items-center";
     productCard.innerHTML = createProductHTML(product);
+
+    // Agregamos un controlador de eventos al hacer click en el producto
+    productCard.addEventListener('click', () => {
+      // Obtenemos el identificador del producto y lo guardamos en el almacenamiento local
+      localStorage.setItem('selectedProductId', product.id);
+      
+      // Redirigimos al usuario a product-info.html
+      window.location.href = 'product-info.html';
+    });
+    
     container.appendChild(productCard);
   });
 }

@@ -1,3 +1,10 @@
+
+.miniatura {
+  width: 95px;
+  height: 60px;
+}
+
+
 .jumbotron,
 .card-body,
 .container,
@@ -221,8 +228,6 @@ a.custom-card:hover {
 }
 .menu a:hover {
   background-color: #000000;
-<<<<<<< Updated upstream
-=======
 }
 
 .product{
@@ -316,7 +321,7 @@ body.dark-mode .mark-done-button{
 }
 
 body.dark-mode .mark-done-button:hover{
-    background-color: rgb(179, 179, 179) !important;
+    background-color: rgb(78, 162, 105) !important;
 }
 
 body.dark-mode #addTaskButton{
@@ -331,5 +336,9 @@ body.dark-mode #addTaskButton:hover{
 
 body.dark-mode #newTask{
     background-color:#d8d8d8;
->>>>>>> Stashed changes
+}
+
+.delete-product {
+  border: none;
+  color: red;
 }
