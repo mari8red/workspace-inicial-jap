@@ -180,7 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const cuentaBancariaInput = document.getElementById("cuentaBancaria");
 
   mostrarOverlayButton.addEventListener("click", () => {
-   
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Verificar si el carrito está vacío
+    if (cartItems.length === 0) {
+      alert("Tu carrito está vacío. Agrega productos antes de comprar.");
+      return; // Detener la ejecución de la función
+    }
     // Validar la dirección de envío
     if (streetAddressInput.value.trim() === "") {
       streetAddressInput.classList.add("is-invalid");
@@ -283,11 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarOverlayButton.addEventListener("click", () => {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Verificar si el carrito está vacío
-  if (cartItems.length === 0) {
-    alert("Tu carrito está vacío. Agrega productos antes de comprar.");
-    return; // Detener la ejecución de la función
-  }
+    // Verificar si el carrito está vacío
+    if (cartItems.length === 0) {
+      alert("Tu carrito está vacío. Agrega productos antes de comprar.");
+      return; // Detener la ejecución de la función
+    }
     // Verificar si el campo de la calle está vacío
     if (
       streetAddressInput.value.trim() === "" ||
@@ -354,6 +360,10 @@ const CC = document.getElementById("creditCard");
 const CVV = document.getElementById("creditCardCVV");
 const dateCC = document.getElementById("creditCardDate");
 const bankAccount = document.getElementById("cuentaBancaria");
+
+CC.setAttribute("disabled", "");
+CVV.setAttribute("disabled", "");
+dateCC.setAttribute("disabled", "");
 
 ccTransfer.addEventListener("click", (event) => {
   bankAccount.setAttribute("disabled", "");
