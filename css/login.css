@@ -10,6 +10,31 @@ body {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+background-color:#F5F8F2
+}
+
+.newClass {
+
+background-color: #F5F8F2
+
+}
+
+
+.login-form {
+    background-color: #FCDE9C;
+    border-radius: 13px;
+    padding: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 40vh;
+
+}
+
 .login-form h2 {
     margin-bottom: 10px;
     font-size: 24px;
@@ -17,6 +42,7 @@ body {
 }
 
 .input-field {
+    width: 100%;
     padding: 14px 16px;
     border: 1px solid #1d8e00;
     border-radius: 8px;
@@ -36,6 +62,12 @@ body {
     background-color: #1877f2;  border: none;
     border-radius: 10px;
     padding: 8px 20px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
@@ -52,18 +84,29 @@ body {
 }
 
 /* Estilo inicial del botón */
-.remember-button{
+.remember-button
     
-
+    background-color: #42b72a;
+    color: white
     border: none;
     border-radius: 10px;
     padding: 4px 5px;
     width: 90%;
     cursor: pointer;
    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
     margin-top: 10px;
 }
 
 
 
 
+.remember-button:hover {
+    background-color: #0d8a19;
+}
+
+/* Estilo del botón activo */
+.remember-button.active {
+    background-color: #0d8a19; 
+}

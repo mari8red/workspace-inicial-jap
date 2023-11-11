@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="css/login.css">
   <link rel="shortcut icon" href="img/favicon.png">
 
-
 </head>
 <body class="bg-light">
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -35,6 +34,29 @@
 
 
 
+<body>
+  <main class="mt-5 newClass">
+    <div class="container newClass col-sm-4 col-md-8 col-lg-12">
+
+      <form id="formulario" class="login-form container-fluid">
+        <img id='imagenLogin' src="https://i.ibb.co/Y8mf8NN/imagen-Login-JAP.png" alt="imagenDeLogin" width="220"
+          height="80">
+
+        <label for="username"></label>
+        <h6 class="text-dark">Iniciar sesión</h6>
+        <input type="text" id="username" name="username" class="input-field" required placeholder="Usuario">
+
+        <label for="password"></label>
+        <input type="password" id="password" name="password" class="input-field " required placeholder="Contraseña">
+
+        <div><button type="button" class="remember-button text-light fw-bold"><input type="checkbox" value="remember-me"> Recordar usuario
+          </button>
+        </div>
+
+        <button id='botton' type="button" class="submit-button text-light fw-bold" onclick="login()">Ingresar</button>
+      </form>
+    </div>
+  </main>
   <footer class="text-muted newClass">
     <div class="containwer fixed-bottom">
 
