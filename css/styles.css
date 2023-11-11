@@ -342,3 +342,48 @@ body.dark-mode #newTask{
   border: none;
   color: red;
 }
+
+body.dark-mode .darkModeButton{
+  background-color: #d8d8d8;
+  color: black;
+}
+
+body.dark-mode .darkModeButton:hover{
+  background-color: rgb(78, 162, 105);
+}
+
+
+body.dark-mode .darkModeModal{
+  background-color: #272727 !important;
+  color: white;
+}
+
+body.dark-mode .darkModeButtonPayment{
+  background-color: white ;
+  color: black;
+}
+
+body.dark-mode .darkModeButtonPayment:hover{
+  background-color: rgb(78, 162, 105) ;
+}
+
+
+
+
+.profile-container{
+  padding: 25px;
+  padding-left: 250px;
+  padding-right: 250px;
+}
+#creditCardCVV::-webkit-inner-spin-button,
+#creditCardCVV::-webkit-outer-spin-button,
+#phoneInput::-webkit-inner-spin-button,
+#phoneInput::-webkit-outer-spin-button,
+#numberAddress::-webkit-inner-spin-button,
+#numberAddress::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+
