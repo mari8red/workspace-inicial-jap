@@ -78,7 +78,8 @@ function saveUserDataToLocalStorage() {
       userData.profileImage = storedUserData.profileImage;
     }
 
-    localStorage.setItem(`userData_${currentUser}`, JSON.stringify(userData));
+    // Utilizamos el nombre del usuario actual para crear una clave única en el localstorage asociada a los datos del usuario.
+    localStorage.setItem(`userData_${currentUser}`, JSON.stringify(userData)); 
   }
 }
 
@@ -87,7 +88,7 @@ function loadUserDataFromLocalStorage() {
   const currentUser = getCurrentUser();
 
   if (currentUser) {
-    const userData = JSON.parse(localStorage.getItem(`userData_${currentUser}`));
+    const userData = JSON.parse(localStorage.getItem(`userData_${currentUser}`)); // Recuperamos los datos del usuario asociados al nombre del usuario actual.
 
     if (userData) {
       document.getElementById("nameInput1").value = userData.firstName;
