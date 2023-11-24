@@ -41,28 +41,28 @@ let getJSONData = function(url){
 }
 
 
-function cerrarSesion() {
+function signOff() {
   localStorage.removeItem("isLoggedIn"); // Eliminar el valor de inicio de sesión
   localStorage.removeItem("isLoggedIn"); // Eliminar el valor de inicio de sesión
   window.location.href = "login.html"; // Redirigir al inicio de sesión
 }
 
 // Obtén los elementos necesarios
-const perfilButton = document.getElementById("perfil-button");
-const perfilMenu = document.getElementById("perfil-menu");
+const profileButton = document.getElementById("perfil-button");
+const profileMenu = document.getElementById("perfil-menu");
 // Agrega un evento click al botón de perfil
-perfilButton.addEventListener("click", () => {
+profileButton.addEventListener("click", () => {
 // Cambia la visibilidad del menú desplegable
-if (perfilMenu.style.display === "block") {
-  perfilMenu.style.display = "none";
+if (profileMenu.style.display === "block") {
+  profileMenu.style.display = "none";
 } else {
-  perfilMenu.style.display = "block";
+  profileMenu.style.display = "block";
 }
 });
 // Cierra el menú si se hace clic en cualquier parte del documento
 document.addEventListener("click", (event) => {
-if (!perfilButton.contains(event.target) && !perfilMenu.contains(event.target)) {
-  perfilMenu.style.display = "none";
+if (!profileButton.contains(event.target) && !profileMenu.contains(event.target)) {
+  profileMenu.style.display = "none";
 }
 });
 
@@ -70,7 +70,9 @@ if (!perfilButton.contains(event.target) && !perfilMenu.contains(event.target)) 
 document.addEventListener("DOMContentLoaded", function(){
 const username = localStorage.getItem("username");
 if (username) {
-  perfilButton.textContent = `${username}`;
+  profileButton.textContent = `${username}`;
+  const emailInput = document.getElementById("emailInput");
+  emailInput.value = username;
 }
 });
 
